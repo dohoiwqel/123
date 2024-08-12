@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F3EC618E-5803-4E11-9D7C-8B6029B51639"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BistrovPBD/View/AuthView/AuthViewController.swift"
@@ -71,15 +71,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C3867EFF-8157-45DD-A8F3-C9484B634E57"
-            shouldBeEnabled = "Yes"
+            uuid = "7EFAE16E-28B4-4B77-BB05-DC986F21ECB9"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BistrovPBD/Coordinator/MainTabBarCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "didFinish()"
             landmarkType = "7">
          </BreakpointContent>

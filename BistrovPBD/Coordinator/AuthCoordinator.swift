@@ -12,23 +12,30 @@ class AuthCoordinator: Coordinator {
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = [] // Массив для хранения дочерних координаторов
     var detailCoordinator: MainTabBarCoordinator!
-    
+    var authViewController: AuthViewController!
     init() {
         self.navigationController = UINavigationController()
+        self.navigationController.navigationBar.isHidden = true
     }
     
     func start() {
         if AuthManager.shared.isAuthenticated() {
-            self.showDetail()
+            self.showMain()
         } else {
-            let vc = AuthViewController()
-            vc.coordinator = self
-            navigationController.pushViewController(vc, animated: false)
+            self.showAuth()
         }
     }
     
-    func showDetail() {
+    public func showAuth() {
+        print("coordinators: \(childCoordinators)")
+        authViewController = AuthViewController()
+        authViewController.coordinator = self
+        navigationController.pushViewController(authViewController, animated: false)
+    }
+    
+    func showMain() {
         detailCoordinator = MainTabBarCoordinator(navigationController: navigationController)
+        detailCoordinator.parentCoordinator = self
         childCoordinators.append(detailCoordinator) // Добавляем дочерний координатор в массив
         detailCoordinator.start() // Запускаем дочерний координатор
     }

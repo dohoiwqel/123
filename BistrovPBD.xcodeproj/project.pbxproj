@@ -30,6 +30,9 @@
 		1A415B9E2C6A8A3200FF3825 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B9D2C6A8A3200FF3825 /* FeedViewController.swift */; };
 		1A415BA12C6A8A4700FF3825 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA02C6A8A4700FF3825 /* ProfileViewController.swift */; };
 		1A415BA32C6A8BDE00FF3825 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA22C6A8BDE00FF3825 /* ProfileView.swift */; };
+		1A415BA52C6A959200FF3825 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA42C6A959200FF3825 /* FeedView.swift */; };
+		1A415BA72C6A97E100FF3825 /* FeedVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA62C6A97E100FF3825 /* FeedVC + TableView.swift */; };
+		1A415BA92C6A984400FF3825 /* TrackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA82C6A984400FF3825 /* TrackTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,6 +73,9 @@
 		1A415B9D2C6A8A3200FF3825 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1A415BA02C6A8A4700FF3825 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		1A415BA22C6A8BDE00FF3825 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		1A415BA42C6A959200FF3825 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		1A415BA62C6A97E100FF3825 /* FeedVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedVC + TableView.swift"; sourceTree = "<group>"; };
+		1A415BA82C6A984400FF3825 /* TrackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +228,9 @@
 			isa = PBXGroup;
 			children = (
 				1A415B9D2C6A8A3200FF3825 /* FeedViewController.swift */,
+				1A415BA42C6A959200FF3825 /* FeedView.swift */,
+				1A415BA62C6A97E100FF3825 /* FeedVC + TableView.swift */,
+				1A415BA82C6A984400FF3825 /* TrackTableViewCell.swift */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -308,8 +317,10 @@
 				1A415B512C6A6E5300FF3825 /* AppDelegate.swift in Sources */,
 				1A415B822C6A838D00FF3825 /* UIView + Ext.swift in Sources */,
 				1A415B712C6A801900FF3825 /* MainTabBarCoordinator.swift in Sources */,
+				1A415BA72C6A97E100FF3825 /* FeedVC + TableView.swift in Sources */,
 				1A415B942C6A869900FF3825 /* AuthViewModel.swift in Sources */,
 				1A415B6D2C6A707C00FF3825 /* AuthViewController.swift in Sources */,
+				1A415BA52C6A959200FF3825 /* FeedView.swift in Sources */,
 				1A415B692C6A6FEB00FF3825 /* Coordinator.swift in Sources */,
 				1A415B7A2C6A835500FF3825 /* AuthView.swift in Sources */,
 				1A415BA12C6A8A4700FF3825 /* ProfileViewController.swift in Sources */,
@@ -322,6 +333,7 @@
 				1A415B532C6A6E5300FF3825 /* SceneDelegate.swift in Sources */,
 				1A415B862C6A83F900FF3825 /* UITextField + Ext.swift in Sources */,
 				1A415B6F2C6A708600FF3825 /* MainViewController.swift in Sources */,
+				1A415BA92C6A984400FF3825 /* TrackTableViewCell.swift in Sources */,
 				1A415B9A2C6A89E400FF3825 /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    weak var delegate: ProfileViewControllerDelegate?
+//    weak var delegate: ProfileViewControllerDelegate?
     weak var coordinator: MainTabBarCoordinator?
     public let profileView = ProfileView()
     
@@ -72,7 +72,7 @@ extension ProfileViewController {
     @objc func logoutPressed() {
         //выход их аккаунта
         print("logout pressed")
-        
+        print(coordinator)
         coordinator?.didFinish()
     }
     

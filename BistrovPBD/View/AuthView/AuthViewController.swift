@@ -71,7 +71,7 @@ extension AuthViewController {
     }
     
     public func showMainVC(status: String) {
-        coordinator.showDetail()
+        coordinator.showMain()
         
     }
 }

@@ -20,14 +20,14 @@ class ProfileView: UIView {
     public let logOutButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "logout.png"), for: .normal)
-        button.backgroundColor = .black
+        button.backgroundColor = .white
         button.imageView?.contentMode = .scaleAspectFit
         return button
     }()
     
     public let aboutMe: UILabel = {
         let label = UILabel()
-        label.text = "О себе:"
+        label.text = "Возможности аккаунта:"
         label.font = UIFont.systemFont(ofSize: 17, weight: .medium)
         label.textColor = Resources.Colors.basicColorAlpha70
         return label
@@ -37,16 +37,20 @@ class ProfileView: UIView {
         let view = UIView()
         view.makeBorders(width: 5)
         view.makeBordersColor(color: Resources.Colors.basicCGColor)
+        view.backgroundColor = .black
         view.makeRadius(radius: 15)
         return view
     }()
     
     public let textTextView: UITextView = {
         let tf = UITextView()
-        tf.textColor = .black
+        tf.textColor = Resources.Colors.basicColorAlpha70
+        if AuthManager.shared.getCurrentUserName() != "admin" {
+            tf.text = " 1. Возможность просмотра ленты с треками. \n 2.Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного"
+        }
         tf.font = UIFont.systemFont(ofSize: 17)
-        tf.backgroundColor = .white
         tf.isScrollEnabled = true
+        tf.backgroundColor = .black
         return tf
     }()
     
@@ -76,6 +80,7 @@ class ProfileView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
+        self.backgroundColor = .black
     }
     
     required init?(coder: NSCoder) {
