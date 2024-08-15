@@ -11,6 +11,10 @@ class TracksViewModel {
     let trackManager = TrackManager.shared
     let authManager = AuthManager.shared
     
+    public func isTrackPlaying() -> Bool {
+        return AudioPlayerManager.shared.isPlayingTrack()
+    }
+    
     public func getUsername() -> String {
         return authManager.getCurrentUserName() ?? ""
     }

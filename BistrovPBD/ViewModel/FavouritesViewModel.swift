@@ -27,4 +27,16 @@ class FavouritesViewModel {
         guard let trackId = getTrack(by: id).id else { return }
         favouritesManager.removeFavoriteTrack(id: trackId)
     }
+    
+    public func isTrackPlaying() -> Bool {
+        return AudioPlayerManager.shared.isPlayingTrack()
+    }
+    
+    public func play(track: TrackEntities) {
+        AudioPlayerManager.shared.play(track: track)
+    }
+    
+    public func pause() {
+        AudioPlayerManager.shared.pause()
+    }
 }

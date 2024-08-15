@@ -17,6 +17,26 @@ enum Resources {
         static let basicCGColor = UIColor(red: 0/255, green: 255/255, blue: 0/255, alpha: 1.0).cgColor
         static let whiteCGColor = CGColor(red: 255, green: 255, blue: 255, alpha: 1)
         static let redCGColor = CGColor(red: 9/255.0, green: 77/255.0, blue: 116/255.0, alpha: 1.0)
+    }
+    
+    enum Images {
+        enum Buttons {
+            static let exitButton = "exitButton"
+            static let nextButton = "nextButton"
+            static let previousButton = "previousButton"
+            static let pauseButton = "pauseButton"
+            static let playButton = "playButton"
+            static let starSelected = "starSelected"
+            static let starUnselected = "starUnselected"
+        }
         
+        enum Images {
+            static let nirvanaImage = "nirvanaImage"
+        }
+        
+        enum Avatar {
+            static let adminAvatar = "adminAvatar"
+            static let userAvatar = "userAvatar"
+        }
     }
 }

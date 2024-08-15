@@ -24,9 +24,9 @@ class ProfileViewModel {
     public func getAvatarName() -> String {
         var avatarName = ""
         if authManager.getCurrentUserName() == "admin" {
-            avatarName = "adminAvatar"
+            avatarName = Resources.Images.Avatar.adminAvatar
         } else {
-            avatarName = "userAvatar"
+            avatarName = Resources.Images.Avatar.userAvatar
         }
         return avatarName
     }

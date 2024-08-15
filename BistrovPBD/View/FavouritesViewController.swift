@@ -37,8 +37,10 @@ class FavouritesViewController: UIViewController {
     }
     
     public func showPlayerViewController(with track: TrackEntities) {
-        AudioPlayerManager.shared.play(track: track)
-        AudioPlayerManager.shared.pause()
+        if viewModel.isTrackPlaying() == false {
+            viewModel.play(track: track)
+            viewModel.pause()
+        }
         reloadTableViewConstraints()
         coordinator?.showPlayerViewController(with: track)
     }

@@ -20,7 +20,7 @@ class ProfileView: UIView {
     
     public let logOutButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "exitButton"), for: .normal)
+        button.setImage(UIImage(named: Resources.Images.Buttons.exitButton), for: .normal)
         return button
     }()
     

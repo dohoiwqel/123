@@ -40,13 +40,13 @@ class FullScreenPlayerViewController: UIViewController {
     public var addToFavoritesButton: UIButton!
     
     public var fullScreenView = FullScreenView()
+    public var viewModel = FullScreenViewModel()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
-    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -89,18 +89,18 @@ class FullScreenPlayerViewController: UIViewController {
     //MARK: - Configure
     func configure(with track: TrackEntities) {
         setupProperties()
-        AudioPlayerManager.shared.play(track: track)
-        AudioPlayerManager.shared.pause()
-        let duration = AudioPlayerManager.shared.getDuration()!
+        viewModel.play(track: track)
+        guard let duration = viewModel.getDuration() else { return }
         self.track = track
-        self.totalTimeLabel.text = formatTime(duration)
+        self.totalTimeLabel.text = viewModel.formatTime(duration)
+        
         trackNameLabel.text = track.trackName
         trackArtistLabel.text = track.authorName
-        if AudioPlayerManager.shared.isPlayingTrack() {
-            let currentTime = AudioPlayerManager.shared.getCurrentTime()!
-            trackSlider.value = Float(currentTime / duration)
+        if viewModel.isTrackPlaying()   {
+            let currentTime = viewModel.getCurrentTime()
+            trackSlider.value = Float(currentTime / duration )
             currentTimeLabel.text = String(format: "%02d:%02d", Int(currentTime) / 60 , Int(currentTime) % 60)
-            playPauseButton.setImage(UIImage(named: "playButton"), for: .normal)
+            playPauseButton.setImage(UIImage(named: Resources.Images.Buttons.playButton), for: .normal)
         } else {
             currentTimeLabel.text = "00:00"
         }
@@ -115,15 +115,15 @@ class FullScreenPlayerViewController: UIViewController {
         trackArtistLabel.text = track.authorName
         trackImageView.image = UIImage(data: track.avatar!)
         
-        if let duration = AudioPlayerManager.shared.getDuration() {
-            totalTimeLabel.text = formatTime(duration)
+        if let duration = viewModel.getDuration() {
+            totalTimeLabel.text = viewModel.formatTime(duration)
             totalTimeLabel.text = track.duration
         }
         
         if AudioPlayerManager.shared.isPlayingTrack() {
-            playPauseButton.setImage(UIImage(named: "playButton"), for: .normal)
+            playPauseButton.setImage(UIImage(named: Resources.Images.Buttons.playButton), for: .normal)
         } else {
-            playPauseButton.setImage(UIImage(named: "pauseButton"), for: .normal)
+            playPauseButton.setImage(UIImage(named: Resources.Images.Buttons.pauseButton), for: .normal)
         }
     }
     

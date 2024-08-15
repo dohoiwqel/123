@@ -18,15 +18,15 @@ extension PlayerViewController {
     
     @objc
     public func didTapPlayPause() {
-        if AudioPlayerManager.shared.isPlayingTrack() {
-            AudioPlayerManager.shared.pause()
+        if viewModel.isTrackPlaying() {
+            viewModel.pause()
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         } else {
             guard let track = track else { return }
-            AudioPlayerManager.shared.play(track: track)
+            viewModel.play(track: track)
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         }
-        if currentCountFavourites != FavoritesManager.shared.getAllFavoriteTrackIDs().count {
+        if currentCountFavourites != viewModel.getFavouriteTracksCount() {
             coodinator?.reloadData()
             coodinator?.reloadConstraints()
         }

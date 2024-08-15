@@ -121,7 +121,7 @@ class TrackManager {
     func loadTracksFromMusicFolder() {
         let musicFolderName = ""  // Папка с музыкой
         
-        guard let avatarImage = UIImage(named: "nirvanaImage") else {
+        guard let avatarImage = UIImage(named: Resources.Images.Images.nirvanaImage) else {
             print("Image nirvanaImage not found")
             return
         }

@@ -34,10 +34,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
             if editingStyle == .delete {
-                // 1. Удалите элемент из данных
                 viewModel.removeTrack(by: indexPath.row)
-
-                // 2. Удалите строку из таблицы с анимацией
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }

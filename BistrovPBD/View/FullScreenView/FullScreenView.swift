@@ -47,14 +47,14 @@ class FullScreenView: UIView {
     
     public let previousButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "previousButton"), for: .normal)
+        button.setImage(UIImage(named: Resources.Images.Buttons.previousButton), for: .normal)
         button.tintColor = .white
         return button
     }()
     
     public let nextButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "nextButton"), for: .normal)
+        button.setImage(UIImage(named: Resources.Images.Buttons.nextButton), for: .normal)
         button.tintColor = .white
         return button
     }()
@@ -79,7 +79,6 @@ class FullScreenView: UIView {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .lightGray
-//        label.text = "00:00"
         return label
     }()
     

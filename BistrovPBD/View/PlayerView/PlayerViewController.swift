@@ -17,6 +17,7 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
     public weak var coodinator: PlayerCoordinator?
     public var currentCountFavourites = FavoritesManager.shared.getAllFavoriteTrackIDs().count
     public let playerV = PlayerView()
+    public let viewModel = PlayerViewModel()
     
     public var trackNameLabel: UILabel!
     public var authorNameLabel: UILabel!
@@ -81,7 +82,7 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
     
     //from coordinator
     public func didDismissFullScreenPlayer() {
-        if AudioPlayerManager.shared.isPlayingTrack() {
+        if viewModel.isTrackPlaying() {
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else {
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)

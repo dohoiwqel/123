@@ -19,7 +19,9 @@ extension FeedViewController {
     }
     
     public func showPlayerViewController(with track: TrackEntities) {
-        viewModel.playPause(track: track)
+        if viewModel.isTrackPlaying() == false {
+            viewModel.playPause(track: track)
+        }
         reloadTableViewConstraints()
         coordinator?.showPlayerViewController(with: track)
     }
