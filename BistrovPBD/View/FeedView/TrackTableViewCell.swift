@@ -44,12 +44,21 @@ class TrackTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.selectionStyle = .none
         self.backgroundColor = .black
         configure()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.trackTimeLimit.text = ""
+        self.trackAuthorName.text = ""
+        self.trackName.text = ""
+        self.trackAvatarImage.image = nil
     }
     
     private func configure() {
@@ -90,7 +99,10 @@ class TrackTableViewCell: UITableViewCell {
 }
 
 extension TrackTableViewCell {
-    public func setupCell() {
-        
+    public func setupCell(trackName: String, authorName: String, timeLimit: String, image: UIImage) {
+        self.trackName.text = trackName
+        self.trackAuthorName.text = authorName
+        self.trackTimeLimit.text = timeLimit
+        self.trackAvatarImage.image = image
     }
 }

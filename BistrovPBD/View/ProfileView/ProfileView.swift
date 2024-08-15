@@ -10,18 +10,24 @@ import SnapKit
 
 class ProfileView: UIView {
     
+    
+    
     public let profileLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 25, weight: .medium)
+        label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        label.text = AuthManager.shared.getCurrentUserName()!
         label.textColor = Resources.Colors.basicColor
         return label
     }()
     
     public let logOutButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "logout.png"), for: .normal)
-        button.backgroundColor = .white
-        button.imageView?.contentMode = .scaleAspectFit
+        button.backgroundColor = .black
+        button.makeBorders(width: 2)
+        button.makeBordersColor(color: UIColor.red.cgColor)
+        button.makeRadius(radius: 15)
+        button.setTitle("Выйти из аккаунта", for: .normal)
+        button.setTitleColor(UIColor.red, for: .normal)
         return button
     }()
     
@@ -35,7 +41,7 @@ class ProfileView: UIView {
     
     public let backTextView: UIView = {
         let view = UIView()
-        view.makeBorders(width: 5)
+        view.makeBorders(width: 2)
         view.makeBordersColor(color: Resources.Colors.basicCGColor)
         view.backgroundColor = .black
         view.makeRadius(radius: 15)
@@ -58,16 +64,15 @@ class ProfileView: UIView {
     public let avatarButton: UIButton = {
         let im = UIButton()
         
-//        if AuthManager.shared.getCurrentUserName() == "user" {
-//            im.image = UIImage(named: "userAvatar")
-//        } else {
-//            im.image = UIImage(named: "adminAvatar")
-//        }
-        im.setTitle("Аватар", for: .normal)
-        im.setTitleColor(Resources.Colors.basicColorAlpha70, for: .normal)
+        if AuthManager.shared.getCurrentUserName() == "admin" {
+            im.setImage(UIImage(named: "adminAvatar"), for: .normal)
+        } else {
+            im.setImage(UIImage(named: "userAvatar"), for: .normal)
+        }
+        im.tintColor = Resources.Colors.basicColorAlpha70
         im.imageView?.contentMode = .scaleAspectFit
         
-        im.makeBorders(width: 5)
+        im.makeBorders(width: 2)
         im.makeRadius(radius: 15)
         im.clipsToBounds = true
 //        im.backgroundColor = .blue
@@ -99,17 +104,13 @@ class ProfileView: UIView {
         addSubview(aboutMe)
         addSubview(backTextView)
         addSubview(textTextView)
+        addSubview(logOutButton)
     }
     
     private func setupConstraints() {
         profileLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(82)
+            make.top.equalToSuperview().offset(60)
             make.centerX.equalToSuperview()
-        }
-        logOutButton.snp.makeConstraints { make in
-            make.size.equalTo(40)
-            make.top.equalTo(profileLabel.snp.top)
-            make.trailing.equalToSuperview().inset(29)
         }
         
         avatarButton.snp.makeConstraints { make in
@@ -135,6 +136,13 @@ class ProfileView: UIView {
             make.top.equalTo(backTextView.snp.top).offset(5)
             make.height.equalTo(240)
             make.trailing.equalToSuperview().inset(40)
+        }
+        
+        logOutButton.snp.makeConstraints { make in
+            make.top.equalTo(textTextView.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(29)
+            make.trailing.equalToSuperview().inset(29)
+            make.height.equalTo(70)
         }
     }
 

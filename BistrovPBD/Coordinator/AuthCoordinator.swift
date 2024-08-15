@@ -9,10 +9,12 @@ import Foundation
 import UIKit
 // Главный координатор
 class AuthCoordinator: Coordinator {
+    
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = [] // Массив для хранения дочерних координаторов
     var detailCoordinator: MainTabBarCoordinator!
     var authViewController: AuthViewController!
+    
     init() {
         self.navigationController = UINavigationController()
         self.navigationController.navigationBar.isHidden = true
