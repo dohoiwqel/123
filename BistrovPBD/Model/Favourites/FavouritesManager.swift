@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 class FavoritesManager {
     
     static let shared = FavoritesManager()
@@ -60,5 +58,10 @@ class FavoritesManager {
             return (try? PropertyListDecoder().decode([UUID].self, from: data)) ?? []
         }
         return []
+    }
+    
+    // Возвращает все идентификаторы избранных треков
+    func getAllFavoriteTrackIDs() -> [UUID] {
+        return fetchFavoriteTrackIDs()
     }
 }

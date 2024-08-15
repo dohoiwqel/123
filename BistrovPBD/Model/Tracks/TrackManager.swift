@@ -150,7 +150,7 @@ class TrackManager {
     
     // MARK: - Helper Method
     
-    private func getTrackDuration(url: URL) -> String {
+    public func getTrackDuration(url: URL) -> String {
         let asset = AVURLAsset(url: url)
         let duration = asset.duration
         let durationInSeconds = CMTimeGetSeconds(duration)

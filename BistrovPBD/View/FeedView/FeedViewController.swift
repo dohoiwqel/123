@@ -9,7 +9,7 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
-    private let feedView = FeedView()
+    public let feedView = FeedView()
     public let viewModel = TracksViewModel()
     public var tableView: UITableView!
     public var playerViewController: PlayerViewController?
@@ -41,18 +41,14 @@ class FeedViewController: UIViewController {
     
     @objc
     func addTrackPressed() {
-        let vc = AddTrackViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        coordinator?.showAddTrackViewController()
     }
     
     public func showPlayerViewController(with track: TrackEntities) {
         AudioPlayerManager.shared.play(track: track)
         AudioPlayerManager.shared.pause()
-        tableView.snp.updateConstraints { make in
-            make.bottom.equalToSuperview().inset(170) // Поднимаем tableView на высоту плеера
-        }
+        reloadTableViewConstraints()
         coordinator?.showPlayerViewController(with: track)
     }
     
-
 }

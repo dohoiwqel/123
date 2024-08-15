@@ -10,12 +10,16 @@ import UIKit
 // Дочерний координатор для показа деталей
 
 class MainTabBarCoordinator: Coordinator {
+    
     var navigationController: UINavigationController
     var parentCoordinator: AuthCoordinator?
     var childCoordinators: [Coordinator] = []
     var tabBarController: MainTabBarController!
     var profileVC: ProfileViewController!
     var feedVC: FeedViewController!
+    var favouritesVC: FavouritesViewController!
+    var addTrackVC: AddTrackViewController!
+    var playVCIsShowing = false
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -32,15 +36,21 @@ class MainTabBarCoordinator: Coordinator {
         feedVC = FeedViewController()
         feedVC.coordinator = self
         
+        favouritesVC = FavouritesViewController()
+        favouritesVC.coordinator = self
+        
         let profileImage = UIImage(systemName: "person.fill")?.withTintColor(Resources.Colors.basicColor)
         let feedImage = UIImage(systemName: "text.line.first.and.arrowtriangle.forward")?.withTintColor(Resources.Colors.basicColor)
+        let favouritesImage = UIImage(systemName: "star.fill")?.withTintColor(Resources.Colors.basicColor)
         
         let profileIcon = UIImage.resizeImage(image: profileImage, targetSize: CGSize(width: 40, height: 40))
         let feedIcon = UIImage.resizeImage(image: feedImage, targetSize: CGSize(width: 40, height: 40))
+        let favouritesIcon = UIImage.resizeImage(image: favouritesImage, targetSize: CGSize(width: 40, height: 40))
         
         tabBarController.viewControllers = [
             generateNavController(for: profileVC, title: "Профиль", image: profileIcon),
-            generateNavController(for: feedVC, title: "Лента", image: feedIcon)
+            generateNavController(for: feedVC, title: "Треки", image: feedIcon),
+            generateNavController(for: favouritesVC, title: "Избранные", image: favouritesIcon),
         ]
         
         navigationController.pushViewController(tabBarController, animated: true)
@@ -80,6 +90,7 @@ class MainTabBarCoordinator: Coordinator {
         
         // Создаем новый PlayerViewController
         let playerVC = PlayerViewController()
+        playerVC.coodinator = self
         playerVC.configure(with: track)
         
         // Добавляем новый PlayerViewController как дочерний контроллер
@@ -93,10 +104,45 @@ class MainTabBarCoordinator: Coordinator {
             make.leading.trailing.equalToSuperview()
             make.bottom.equalToSuperview().inset(100)
         }
+        self.playVCIsShowing = true
         self.tabBarController.view.layoutIfNeeded()
+        self.feedVC.reloadTableViewConstraints()
+        self.favouritesVC.reloadTableViewConstraints()
+    }
+    
+    func dismissPlayerViewController() {
+        AudioPlayerManager.shared.stop()
+        if let existingPlayerVC = tabBarController.children.first(where: { $0 is PlayerViewController }) {
+            // Удаляем старый PlayerViewController
+            existingPlayerVC.willMove(toParent: nil)
+            existingPlayerVC.view.removeFromSuperview()
+            existingPlayerVC.removeFromParent()
+        }
+        self.tabBarController.view.layoutIfNeeded()
+        self.feedVC.reloadTableViewConstraints()
+        self.favouritesVC.reloadTableViewConstraints()
+        self.playVCIsShowing = false
+        self.feedVC.reloadTableViewConstraints()
+        self.favouritesVC.reloadTableViewConstraints()
     }
 
+    func reloadFavourites() {
+        guard let favouritesVC = favouritesVC else { return }
+        favouritesVC.reloadTracks()
+    }
     
+    func showAddTrackViewController() {
+        addTrackVC = AddTrackViewController()
+//        addTrackVC.configure(with: track)
+        addTrackVC.maincoodinator = self
+        feedVC.present(addTrackVC, animated: true)
+    }
+    
+    func dismissAddTrackViewController() {
+        feedVC.dismiss(animated: true)
+        feedVC.reloadTracks()
+        favouritesVC.reloadTracks()
+    }
     
 }
 

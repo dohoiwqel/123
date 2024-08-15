@@ -12,6 +12,7 @@ import AVFoundation // Для работы с аудио и видео
 
 class AddTrackViewController: UIViewController {
     
+    public weak var maincoodinator: MainTabBarCoordinator?
     // MARK: - UI Elements
     private var authorNameTextField: UITextField!
     private var trackNameTextField: UITextField!
@@ -19,13 +20,15 @@ class AddTrackViewController: UIViewController {
     private var selectImageButton: UIButton!
     private var selectTrackButton: UIButton!
     private var saveButton: UIButton!
+    private var dismissButton: UIButton!
     
     // MARK: - Properties
     private var selectedImage: UIImage?
     private var trackData: Data?
-    private var trackDuration: Double = 0.0
+    private var trackDuration: String = ""
     
     private let addTrackView = AddTrackView()
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -55,12 +58,18 @@ class AddTrackViewController: UIViewController {
         self.selectImageButton = addTrackView.selectImageButton
         self.selectTrackButton = addTrackView.selectTrackButton
         self.saveButton = addTrackView.loadButton
+        self.dismissButton = addTrackView.dismissButton
     }
     
     private func setupButtons() {
         selectImageButton.addTarget(self, action: #selector(imagePressed), for: .touchUpInside)
         selectTrackButton.addTarget(self, action: #selector(trackPressed), for: .touchUpInside)
         saveButton.addTarget(self, action: #selector(saveTrack), for: .touchUpInside)
+        dismissButton.addTarget(self, action: #selector(dismissPressed), for: .touchUpInside)
+    }
+    
+    @objc private func dismissPressed() {
+        maincoodinator?.dismissAddTrackViewController()
     }
     
     @objc private func imagePressed() {
@@ -81,16 +90,15 @@ class AddTrackViewController: UIViewController {
               let trackName = trackNameTextField.text, !trackName.isEmpty,
               let trackData = trackData else {
             // Обработка некорректного ввода
-            showAlert(title: "Error", message: "Please make sure all fields are filled and a track is selected.")
+            showAlert(title: "Ошибка", message: "Пожалуйста, убедитесь, что все поля заполнены и загружены все данные.")
             return
         }
-        
         // Здесь вы можете сохранить трек через TrackManager (например)
         // TrackManager.shared.addTrack(...)
-        TrackManager.shared.addTrack(authorName: authorName, trackName: trackName, trackData: trackData, duration: String(trackDuration), avatar: selectedImage)
-        showAlert(title: "Success", message: "Track successfully saved.")
+        TrackManager.shared.addTrack(authorName: authorName, trackName: trackName, trackData: trackData, duration: trackDuration, avatar: selectedImage)
+        showAlert(title: "Успешно", message: "Трек сохранён успешно")
         // Опционально, показать сообщение о сохранении или вернуться на предыдущий экран
-        navigationController?.popViewController(animated: true)
+        maincoodinator?.dismissAddTrackViewController()
     }
     
     private func showAlert(title: String, message: String) {
@@ -128,7 +136,7 @@ extension AddTrackViewController: UIDocumentPickerDelegate {
         guard let fileURL = urls.first else { return }
         do {
             trackData = try Data(contentsOf: fileURL)
-            calculateTrackDuration(url: fileURL)
+            trackDuration = calculateTrackDuration(url: fileURL)
             addTrackView.isTrackLoaded.image = UIImage(systemName: "checkmark.square")
             addTrackView.isTrackLoaded.tintColor = Resources.Colors.basicColor
         } catch {
@@ -138,14 +146,12 @@ extension AddTrackViewController: UIDocumentPickerDelegate {
         }
     }
     
-    func documentPickerWasCancelled(_ controller: UIDocumentPickerViewController) {
-        // Обработка отмены
-    }
-    
-    private func calculateTrackDuration(url: URL) {
+    private func calculateTrackDuration(url: URL) -> String {
         let asset = AVURLAsset(url: url)
         let duration = asset.duration
-        trackDuration = CMTimeGetSeconds(duration)
-        print("Длительность трека: \(trackDuration) секунд")
+        let durationInSeconds = CMTimeGetSeconds(duration)
+        let minutes = Int(durationInSeconds) / 60
+        let seconds = Int(durationInSeconds) % 60
+        return String(format: "%02d:%02d", minutes, seconds)
     }
 }

@@ -10,7 +10,10 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
     
-    let favouritesView = FavouritesView()
+    public var coordinator: MainTabBarCoordinator?
+    public let favouritesView = FavouritesView()
+    public var tableView: UITableView!
+    public var viewModel = FavouritesViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,13 +22,21 @@ class FavouritesViewController: UIViewController {
     
     private func configure() {
         setupUI()
+        setupTableView()
     }
     
     private func setupUI() {
         view.addSubview(favouritesView)
-        
+        tableView = favouritesView.favouritesTableView
         favouritesView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    public func showPlayerViewController(with track: TrackEntities) {
+        AudioPlayerManager.shared.play(track: track)
+        AudioPlayerManager.shared.pause()
+        reloadTableViewConstraints()
+        coordinator?.showPlayerViewController(with: track)
     }
 }

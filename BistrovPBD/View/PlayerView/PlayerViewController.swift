@@ -14,6 +14,7 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
 
     private var track: TrackEntities?
     private var player: AVAudioPlayer?
+    public weak var coodinator: MainTabBarCoordinator?
     
     private let trackNameLabel: UILabel = {
         let label = UILabel()
@@ -58,6 +59,8 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
         return button
     }()
     
+    public var currentCountFavourites = FavoritesManager.shared.getAllFavoriteTrackIDs().count
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .clear
@@ -68,6 +71,7 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
         setupSubviews()
         setupConstraints()
         setupButtons()
+        setupSwipeGesture()
     }
     
     private func setupSubviews() {
@@ -137,14 +141,26 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
         } else {
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
+        coodinator?.reloadFavourites()
     }
     
 }
 
 extension PlayerViewController {
+    
     public func setupButtons() {
         playPauseButton.addTarget(self, action: #selector(didTapPlayPause), for: .touchUpInside)
         fullScreenButton.addTarget(self, action: #selector(fullScreenTapped), for: .touchUpInside)
+    }
+    
+    public func setupSwipeGesture() {
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown(_:)))
+        swipeDown.direction = .down
+        view.addGestureRecognizer(swipeDown)
+    }
+
+    @objc private func handleSwipeDown(_ gesture: UISwipeGestureRecognizer) {
+        coodinator?.dismissPlayerViewController()
     }
     
     @objc 
@@ -158,12 +174,15 @@ extension PlayerViewController {
             AudioPlayerManager.shared.play(track: track)
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         }
+        if currentCountFavourites != FavoritesManager.shared.getAllFavoriteTrackIDs().count {
+            coodinator?.reloadFavourites()
+        }
     }
     
     @objc func fullScreenTapped() {
         guard let track = track else { return }
         let fullScreenVC = FullScreenPlayerViewController()
-        fullScreenVC.delegate = self
+        fullScreenVC.fullScreendelegate = self
         fullScreenVC.configure(with: track)
         present(fullScreenVC, animated: true, completion: nil)
     }

@@ -27,6 +27,9 @@ class FeedView: UIView {
         let button = UIButton()
         let image = UIImage(systemName: "plus")
 //        = CGSize(width: 40, height: 40)
+        if AuthManager.shared.getCurrentUserName() != "admin" {
+            button.isHidden = true
+        }
         button.setBackgroundImage(image, for: .normal)
         button.tintColor = Resources.Colors.basicColor
         return button

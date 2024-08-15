@@ -17,6 +17,13 @@ class AddTrackView: UIView {
         return label
     }()
     
+    public let dismissButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "chevron.down")!.withTintColor(Resources.Colors.basicColorAlpha70), for: .normal)
+        button.tintColor = Resources.Colors.basicColorAlpha70
+        return button
+    }()
+    
     public let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = Resources.Colors.basicColor
@@ -129,12 +136,13 @@ class AddTrackView: UIView {
         addSubview(isImageLoaded)
         addSubview(isTrackLoaded)
         addSubview(loadButton)
+        addSubview(dismissButton)
     }
     
     private func setupConstraints() {
         addingTrack.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(60)
+            make.top.equalToSuperview().offset(10)
         }
         avatarImageView.snp.makeConstraints { make in
             make.size.equalTo(150)
@@ -189,6 +197,12 @@ class AddTrackView: UIView {
             make.height.equalTo(46)
             make.centerX.equalToSuperview()
             make.width.equalTo(selectTrackButton.snp.width)
+        }
+        
+        dismissButton.snp.makeConstraints { make in
+            make.centerY.equalTo(addingTrack.snp.centerY)
+            make.leading.equalToSuperview().offset(20)
+            make.size.equalTo(24)
         }
     }
 }

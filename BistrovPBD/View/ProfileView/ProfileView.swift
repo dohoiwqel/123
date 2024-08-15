@@ -22,12 +22,7 @@ class ProfileView: UIView {
     
     public let logOutButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .black
-        button.makeBorders(width: 2)
-        button.makeBordersColor(color: UIColor.red.cgColor)
-        button.makeRadius(radius: 15)
-        button.setTitle("Выйти из аккаунта", for: .normal)
-        button.setTitleColor(UIColor.red, for: .normal)
+        button.setImage(UIImage(named: "exitButton"), for: .normal)
         return button
     }()
     
@@ -48,16 +43,19 @@ class ProfileView: UIView {
         return view
     }()
     
-    public let textTextView: UITextView = {
-        let tf = UITextView()
-        tf.textColor = Resources.Colors.basicColorAlpha70
+    public let textLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .natural
+        label.textColor = Resources.Colors.basicColorAlpha70
         if AuthManager.shared.getCurrentUserName() != "admin" {
-            tf.text = " 1. Возможность просмотра ленты с треками. \n 2.Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного"
+            label.text = " 1. Возможность просмотра ленты с треками. \n 2. Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного.\n 4. Возможность использовать плеер."
+        } else {
+            label.text = " 1. Возможность просмотра ленты с треками. \n 2. Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного.\n 4. Возможность использовать плеер \n 5. Возможность добавлять треки.\n 6. Возможность удалять треки."
         }
-        tf.font = UIFont.systemFont(ofSize: 17)
-        tf.isScrollEnabled = true
-        tf.backgroundColor = .black
-        return tf
+        label.font = UIFont.systemFont(ofSize: 17)
+        label.backgroundColor = .black
+        return label
     }()
     
     
@@ -103,7 +101,7 @@ class ProfileView: UIView {
         addSubview(avatarButton)
         addSubview(aboutMe)
         addSubview(backTextView)
-        addSubview(textTextView)
+        addSubview(textLabel)
         addSubview(logOutButton)
     }
     
@@ -131,7 +129,7 @@ class ProfileView: UIView {
             make.height.equalTo(250)
         }
         
-        textTextView.snp.makeConstraints { make in
+        textLabel.snp.makeConstraints { make in
             make.leading.equalTo(aboutMe.snp.leading)
             make.top.equalTo(backTextView.snp.top).offset(5)
             make.height.equalTo(240)
@@ -139,10 +137,9 @@ class ProfileView: UIView {
         }
         
         logOutButton.snp.makeConstraints { make in
-            make.top.equalTo(textTextView.snp.bottom).offset(30)
-            make.leading.equalToSuperview().offset(29)
+            make.centerY.equalTo(profileLabel.snp.centerY)
             make.trailing.equalToSuperview().inset(29)
-            make.height.equalTo(70)
+            make.size.equalTo(40)
         }
     }
 

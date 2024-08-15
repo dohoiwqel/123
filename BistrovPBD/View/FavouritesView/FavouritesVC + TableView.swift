@@ -1,15 +1,14 @@
 //
-//  FeedVC + Table.swift
+//  FavouritesVC + TableView.swift
 //  BistrovPBD
 //
-//  Created by Александр Андреев on 12.08.2024.
+//  Created by Александр Андреев on 15.08.2024.
 //
 
 import Foundation
 import UIKit
-import SnapKit
 
-extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
+extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setupTableView() {
         tableView.dataSource = self
@@ -18,14 +17,9 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.register(TrackTableViewCell.self, forCellReuseIdentifier: TrackTableViewCell.reuseId)
     }
     
-    func reloadTracks() {
-        guard let tableView = tableView else { return }
-        tableView.reloadData()
-    }
-    
     func reloadTableViewConstraints() {
         guard let coordinator = coordinator else { return }
-        tableView = feedView.tracksTableView
+        tableView = favouritesView.favouritesTableView
         if coordinator.playVCIsShowing  {
             tableView.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(170)
@@ -37,19 +31,25 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-         if editingStyle == .delete {
-             // 1. Удалите элемент из данных
-             viewModel.removeTrack(by: indexPath.row)
+   func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            if editingStyle == .delete {
+                // 1. Удалите элемент из данных
+                viewModel.removeTrack(by: indexPath.row)
 
-             // 2. Удалите строку из таблицы с анимацией
-             tableView.deleteRows(at: [indexPath], with: .automatic)
-         }
-     }
+                // 2. Удалите строку из таблицы с анимацией
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        }
+    
+    func reloadTracks() {
+        guard let tableView = tableView else { return }
+        tableView.reloadData()
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.getCountItems()
     }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         70
@@ -68,10 +68,6 @@ extension FeedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let selectedTrack = viewModel.getTrack(by: indexPath.row)
-            
-            // Убираем предыдущий плеер, если он уже есть
-            playerViewController?.view.removeFromSuperview()
-            playerViewController?.removeFromParent()
 
             // Отображаем новый плеер
             showPlayerViewController(with: selectedTrack)

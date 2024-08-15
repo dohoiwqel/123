@@ -17,4 +17,9 @@ class TracksViewModel {
     public func getTrack(by id: Int) -> TrackEntities {
         return trackManager.fetchTracks()[id]
     }
+    
+    public func removeTrack(by id: Int) {
+        let track = getTrack(by: id)
+        trackManager.deleteTrack(track: track)
+    }
 }

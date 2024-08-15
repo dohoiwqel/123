@@ -25,8 +25,8 @@ class AuthViewModel {
     
     public func logInUser() {
         print(self.userName, self.userPassword)
-        if userName == "vova" && userPassword == "vova" {
-            self.verificationStatus = "vova"
+        if userName == "artem" && userPassword == "artem" {
+            self.verificationStatus = "artem"
         } else if userName == "admin" && userPassword == "admin" {
             self.verificationStatus = "admin"
         } else {

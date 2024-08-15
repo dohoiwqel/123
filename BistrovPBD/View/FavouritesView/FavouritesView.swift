@@ -18,6 +18,8 @@ class FavouritesView: UIView {
         return label
     }()
     
+    public  let favouritesTableView = UITableView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -35,12 +37,21 @@ class FavouritesView: UIView {
     
     private func setupSubviews() {
         addSubview(favouritesHeaderLabel)
+        addSubview(favouritesTableView)
     }
     
     private func setupConstraits() {
         favouritesHeaderLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(60)
+        }
+        
+        favouritesTableView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(100)
+            make.top.equalTo(favouritesHeaderLabel.snp.bottom).offset(30)
         }
     }
 }

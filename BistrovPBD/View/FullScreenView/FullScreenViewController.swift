@@ -14,7 +14,7 @@ protocol FullScreenPlayerDelegate: AnyObject {
 class FullScreenPlayerViewController: UIViewController {
     
     private var track: TrackEntities?
-    weak var delegate: FullScreenPlayerDelegate?
+    weak var fullScreendelegate: FullScreenPlayerDelegate?
     
     private let trackNameLabel: UILabel = {
         let label = UILabel()
@@ -106,7 +106,7 @@ class FullScreenPlayerViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        delegate?.didDismissFullScreenPlayer()
+        fullScreendelegate?.didDismissFullScreenPlayer()
     }
     
     func configure(with track: TrackEntities) {

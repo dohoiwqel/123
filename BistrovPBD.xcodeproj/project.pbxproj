@@ -19,7 +19,6 @@
 		1A1451852C6CF03B003D5ECF /* Stay Away.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A1451792C6CF03B003D5ECF /* Stay Away.mp3 */; };
 		1A1451862C6CF03B003D5ECF /* Breed.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A14517A2C6CF03B003D5ECF /* Breed.mp3 */; };
 		1A1451872C6CF03B003D5ECF /* Lithium.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1A14517B2C6CF03B003D5ECF /* Lithium.mp3 */; };
-		1A1451892C6D5030003D5ECF /* DurationCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451882C6D5030003D5ECF /* DurationCreator.swift */; };
 		1A1451902C6D5517003D5ECF /* TrackEntities+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14518E2C6D5517003D5ECF /* TrackEntities+CoreDataClass.swift */; };
 		1A1451912C6D5517003D5ECF /* TrackEntities+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14518F2C6D5517003D5ECF /* TrackEntities+CoreDataProperties.swift */; };
 		1A1451942C6D584A003D5ECF /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451932C6D584A003D5ECF /* PlayerViewController.swift */; };
@@ -29,6 +28,8 @@
 		1A14519E2C6E3F8A003D5ECF /* FavouritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14519D2C6E3F8A003D5ECF /* FavouritesView.swift */; };
 		1A1451A12C6E3FA8003D5ECF /* FavouritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A02C6E3FA8003D5ECF /* FavouritesViewController.swift */; };
 		1A1451A42C6E4768003D5ECF /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */; };
+		1A1451A62C6E744B003D5ECF /* FavouritesVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A52C6E744B003D5ECF /* FavouritesVC + TableView.swift */; };
+		1A1451A82C6E7514003D5ECF /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */; };
 		1A415B512C6A6E5300FF3825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B502C6A6E5300FF3825 /* AppDelegate.swift */; };
 		1A415B532C6A6E5300FF3825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B522C6A6E5300FF3825 /* SceneDelegate.swift */; };
 		1A415B552C6A6E5300FF3825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B542C6A6E5300FF3825 /* ViewController.swift */; };
@@ -87,7 +88,6 @@
 		1A1451792C6CF03B003D5ECF /* Stay Away.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "Stay Away.mp3"; path = "../../../../../Downloads/Nirvana - Nevermind (Remastered)/Stay Away.mp3"; sourceTree = "<group>"; };
 		1A14517A2C6CF03B003D5ECF /* Breed.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Breed.mp3; path = "../../../../../Downloads/Nirvana - Nevermind (Remastered)/Breed.mp3"; sourceTree = "<group>"; };
 		1A14517B2C6CF03B003D5ECF /* Lithium.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Lithium.mp3; path = "../../../../../Downloads/Nirvana - Nevermind (Remastered)/Lithium.mp3"; sourceTree = "<group>"; };
-		1A1451882C6D5030003D5ECF /* DurationCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationCreator.swift; sourceTree = "<group>"; };
 		1A14518E2C6D5517003D5ECF /* TrackEntities+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackEntities+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1A14518F2C6D5517003D5ECF /* TrackEntities+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TrackEntities+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1A1451932C6D584A003D5ECF /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		1A14519D2C6E3F8A003D5ECF /* FavouritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesView.swift; sourceTree = "<group>"; };
 		1A1451A02C6E3FA8003D5ECF /* FavouritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesViewController.swift; path = BistrovPBD/View/FavouritesViewController.swift; sourceTree = SOURCE_ROOT; };
 		1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
+		1A1451A52C6E744B003D5ECF /* FavouritesVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesVC + TableView.swift"; sourceTree = "<group>"; };
+		1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
 		1A415B4D2C6A6E5300FF3825 /* BistrovPBD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BistrovPBD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A415B502C6A6E5300FF3825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A415B522C6A6E5300FF3825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,8 +192,32 @@
 			children = (
 				1A14519D2C6E3F8A003D5ECF /* FavouritesView.swift */,
 				1A1451A02C6E3FA8003D5ECF /* FavouritesViewController.swift */,
+				1A1451A52C6E744B003D5ECF /* FavouritesVC + TableView.swift */,
 			);
 			path = FavouritesView;
+			sourceTree = "<group>";
+		};
+		1A1451A92C6E96DB003D5ECF /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		1A1451AA2C6E96E9003D5ECF /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				1A9BF2952C6AA341000661EC /* TrackManager.swift */,
+			);
+			path = Tracks;
+			sourceTree = "<group>";
+		};
+		1A1451AB2C6E96F4003D5ECF /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		1A415B442C6A6E5300FF3825 = {
@@ -238,6 +264,9 @@
 		1A415B722C6A80B300FF3825 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1A1451AB2C6E96F4003D5ECF /* Auth */,
+				1A1451AA2C6E96E9003D5ECF /* Tracks */,
+				1A1451A92C6E96DB003D5ECF /* Favourites */,
 				1A14519A2C6D7469003D5ECF /* Audio */,
 				1A14516F2C6CF02B003D5ECF /* Music */,
 				1A415B972C6A89BD00FF3825 /* Data */,
@@ -268,6 +297,7 @@
 			children = (
 				1A415B932C6A869900FF3825 /* AuthViewModel.swift */,
 				1A9BF2982C6AA3D9000661EC /* TracksViewModel.swift */,
+				1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -316,10 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				1A415B952C6A86DC00FF3825 /* AuthManager.swift */,
-				1A9BF2952C6AA341000661EC /* TrackManager.swift */,
 				1A9BF2A62C6ADDE5000661EC /* TrackModel.xcdatamodeld */,
-				1A1451882C6D5030003D5ECF /* DurationCreator.swift */,
-				1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -458,6 +485,7 @@
 				1A9BF29C2C6AA47F000661EC /* AddTrackViewController.swift in Sources */,
 				1A1451942C6D584A003D5ECF /* PlayerViewController.swift in Sources */,
 				1A415B712C6A801900FF3825 /* MainTabBarCoordinator.swift in Sources */,
+				1A1451A82C6E7514003D5ECF /* FavouritesViewModel.swift in Sources */,
 				1A415BA72C6A97E100FF3825 /* FeedVC + TableView.swift in Sources */,
 				1A415B942C6A869900FF3825 /* AuthViewModel.swift in Sources */,
 				1A415B6D2C6A707C00FF3825 /* AuthViewController.swift in Sources */,
@@ -466,6 +494,7 @@
 				1A1451962C6D64E3003D5ECF /* UIImage + Ext.swift in Sources */,
 				1A415B692C6A6FEB00FF3825 /* Coordinator.swift in Sources */,
 				1A415B7A2C6A835500FF3825 /* AuthView.swift in Sources */,
+				1A1451A62C6E744B003D5ECF /* FavouritesVC + TableView.swift in Sources */,
 				1A415BA12C6A8A4700FF3825 /* ProfileViewController.swift in Sources */,
 				1A415B962C6A86DC00FF3825 /* AuthManager.swift in Sources */,
 				1A9BF2A12C6AC957000661EC /* AddTrackView.swift in Sources */,
@@ -482,7 +511,6 @@
 				1A14519C2C6D747D003D5ECF /* AudioPlayer.swift in Sources */,
 				1A415BA92C6A984400FF3825 /* TrackTableViewCell.swift in Sources */,
 				1A415B9A2C6A89E400FF3825 /* MainTabBarController.swift in Sources */,
-				1A1451892C6D5030003D5ECF /* DurationCreator.swift in Sources */,
 				1A1451902C6D5517003D5ECF /* TrackEntities+CoreDataClass.swift in Sources */,
 				1A1451912C6D5517003D5ECF /* TrackEntities+CoreDataProperties.swift in Sources */,
 				1A14519E2C6E3F8A003D5ECF /* FavouritesView.swift in Sources */,
