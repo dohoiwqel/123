@@ -10,7 +10,7 @@ import UIKit
 
 class MainTabBarController: UITabBarController {
 
-//    weak var mainDelegate: MainTabBarControllerDelegate?
+    //MARK: - Properties
     weak var coordinator: MainTabBarCoordinator!
     
     private let customTabBarView: UIView = {
@@ -22,17 +22,20 @@ class MainTabBarController: UITabBarController {
         return view
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    //MARK: - Methods
     private func configure() {
         generateTabBar()
         setupView()
         setupSubviews()
         setupConstraints()
     }
+    
     
     private func setupView() {
         if #available(iOS 15.0, *) {
@@ -91,7 +94,7 @@ class MainTabBarController: UITabBarController {
     
 }
 
-
+//MARK: - Generating tabBar
 extension MainTabBarController {
     private func generateTabBar() {
         

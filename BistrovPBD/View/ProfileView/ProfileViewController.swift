@@ -10,37 +10,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-//    weak var delegate: ProfileViewControllerDelegate?
-    weak var coordinator: MainTabBarCoordinator?
+    //MARK: Properties
+    weak var coordinator: ProfileCoordinator?
     public let profileView = ProfileView()
+    public let viewModel = ProfileViewModel()
     
-//    public let viewModel = ProfileViewModel()
-    
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configure()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-//        viewModel.updateText(newText: profileView.textTextView.text)
-    }
-    
+    //MARK: Methods
     private func configure() {
-        updateProfileView()
+        setupViewModel()
         setupView()
         setupButtons()
-        
-//        print(UserManager.shared.getUser(forUsername: "admin"))
-
-
-    }
-    
-    private func updateProfileView() {
-//        profileView.profileLabel.text = viewModel.getUsername().uppercased()
-//        profileView.avatarButton.setImage(viewModel.getImage(), for: .normal)
-//        profileView.textTextView.text = viewModel.getText()
     }
     
     private func setupView() {
@@ -49,36 +34,15 @@ class ProfileViewController: UIViewController {
             make.edges.equalToSuperview()
         }
     }
+    
+    private func setupViewModel() {
+        profileView.textLabel.text = viewModel.getText()
+        profileView.avatarButton.setImage(UIImage(named: viewModel.getAvatarName()), for: .normal)
+        profileView.profileLabel.text = viewModel.getUsername()
+    }
 }
 
-//Action
-extension ProfileViewController {
-    
-    private func setupButtons() {
-        profileView.logOutButton.addTarget(self, action: #selector(logoutPressed), for: .touchUpInside)
-        
-        profileView.avatarButton.addTarget(self, action: #selector(setAvatar), for: .touchUpInside)
-    }
-    
-    @objc func setAvatar() {
-        let imagePicker = UIImagePickerController()
-        imagePicker.sourceType = .photoLibrary
-//        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    
-    @objc func logoutPressed() {
-        //выход их аккаунта
-        print("logout pressed")
-        print(coordinator)
-        coordinator?.didFinish()
-    }
-    
-    
-        
-}
+
         
         
 

@@ -30,6 +30,23 @@
 		1A1451A42C6E4768003D5ECF /* FavouritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */; };
 		1A1451A62C6E744B003D5ECF /* FavouritesVC + TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A52C6E744B003D5ECF /* FavouritesVC + TableView.swift */; };
 		1A1451A82C6E7514003D5ECF /* FavouritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */; };
+		1A1451AE2C6E9E1E003D5ECF /* FeedCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451AD2C6E9E1E003D5ECF /* FeedCoordinator.swift */; };
+		1A1451B02C6E9E43003D5ECF /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451AF2C6E9E43003D5ECF /* ProfileCoordinator.swift */; };
+		1A1451B32C6E9F85003D5ECF /* FavouritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451B22C6E9F85003D5ECF /* FavouritesCoordinator.swift */; };
+		1A1451B52C6EA1DB003D5ECF /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451B42C6EA1DB003D5ECF /* AuthManager.swift */; };
+		1A1451B72C6EA749003D5ECF /* PlayerCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451B62C6EA748003D5ECF /* PlayerCoordinator.swift */; };
+		1A1451BF2C6EAB87003D5ECF /* ProfileVC + Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451BE2C6EAB87003D5ECF /* ProfileVC + Action.swift */; };
+		1A1451C12C6EAD2D003D5ECF /* FeedVC + Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451C02C6EAD2D003D5ECF /* FeedVC + Action.swift */; };
+		1A1451C32C6EADE5003D5ECF /* AddTrackVC + Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451C22C6EADE5003D5ECF /* AddTrackVC + Action.swift */; };
+		1A1451C52C6EAE75003D5ECF /* AddTrackVC + UIDocumentPickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451C42C6EAE75003D5ECF /* AddTrackVC + UIDocumentPickerDelegate.swift */; };
+		1A1451C72C6EAEC5003D5ECF /* AddTrackVC + UIImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451C62C6EAEC5003D5ECF /* AddTrackVC + UIImagePickerDelegate.swift */; };
+		1A1451C92C6EAF57003D5ECF /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451C82C6EAF57003D5ECF /* PlayerView.swift */; };
+		1A1451CB2C6EB0FF003D5ECF /* PlayerVC + Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451CA2C6EB0FF003D5ECF /* PlayerVC + Action.swift */; };
+		1A1451CD2C6EB1E0003D5ECF /* FullScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451CC2C6EB1E0003D5ECF /* FullScreenView.swift */; };
+		1A1451CF2C6EB388003D5ECF /* FullScreenVC + Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451CE2C6EB388003D5ECF /* FullScreenVC + Action.swift */; };
+		1A1451D12C6EB705003D5ECF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451D02C6EB705003D5ECF /* ProfileViewModel.swift */; };
+		1A1451D32C6EBA7F003D5ECF /* AddTrackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451D22C6EBA7F003D5ECF /* AddTrackViewModel.swift */; };
+		1A1451D52C6EBBAF003D5ECF /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1451D42C6EBBAF003D5ECF /* PlayerViewModel.swift */; };
 		1A415B512C6A6E5300FF3825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B502C6A6E5300FF3825 /* AppDelegate.swift */; };
 		1A415B532C6A6E5300FF3825 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B522C6A6E5300FF3825 /* SceneDelegate.swift */; };
 		1A415B552C6A6E5300FF3825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B542C6A6E5300FF3825 /* ViewController.swift */; };
@@ -47,7 +64,6 @@
 		1A415B882C6A841000FF3825 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B872C6A841000FF3825 /* Resources.swift */; };
 		1A415B922C6A858A00FF3825 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A415B912C6A858A00FF3825 /* SnapKit */; };
 		1A415B942C6A869900FF3825 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B932C6A869900FF3825 /* AuthViewModel.swift */; };
-		1A415B962C6A86DC00FF3825 /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B952C6A86DC00FF3825 /* AuthManager.swift */; };
 		1A415B9A2C6A89E400FF3825 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B992C6A89E400FF3825 /* MainTabBarController.swift */; };
 		1A415B9E2C6A8A3200FF3825 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415B9D2C6A8A3200FF3825 /* FeedViewController.swift */; };
 		1A415BA12C6A8A4700FF3825 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A415BA02C6A8A4700FF3825 /* ProfileViewController.swift */; };
@@ -99,6 +115,23 @@
 		1A1451A32C6E4768003D5ECF /* FavouritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesManager.swift; sourceTree = "<group>"; };
 		1A1451A52C6E744B003D5ECF /* FavouritesVC + TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavouritesVC + TableView.swift"; sourceTree = "<group>"; };
 		1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesViewModel.swift; sourceTree = "<group>"; };
+		1A1451AD2C6E9E1E003D5ECF /* FeedCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCoordinator.swift; sourceTree = "<group>"; };
+		1A1451AF2C6E9E43003D5ECF /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		1A1451B22C6E9F85003D5ECF /* FavouritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCoordinator.swift; sourceTree = "<group>"; };
+		1A1451B42C6EA1DB003D5ECF /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		1A1451B62C6EA748003D5ECF /* PlayerCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCoordinator.swift; sourceTree = "<group>"; };
+		1A1451BE2C6EAB87003D5ECF /* ProfileVC + Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileVC + Action.swift"; sourceTree = "<group>"; };
+		1A1451C02C6EAD2D003D5ECF /* FeedVC + Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedVC + Action.swift"; sourceTree = "<group>"; };
+		1A1451C22C6EADE5003D5ECF /* AddTrackVC + Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTrackVC + Action.swift"; sourceTree = "<group>"; };
+		1A1451C42C6EAE75003D5ECF /* AddTrackVC + UIDocumentPickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTrackVC + UIDocumentPickerDelegate.swift"; sourceTree = "<group>"; };
+		1A1451C62C6EAEC5003D5ECF /* AddTrackVC + UIImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddTrackVC + UIImagePickerDelegate.swift"; sourceTree = "<group>"; };
+		1A1451C82C6EAF57003D5ECF /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		1A1451CA2C6EB0FF003D5ECF /* PlayerVC + Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerVC + Action.swift"; sourceTree = "<group>"; };
+		1A1451CC2C6EB1E0003D5ECF /* FullScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenView.swift; sourceTree = "<group>"; };
+		1A1451CE2C6EB388003D5ECF /* FullScreenVC + Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FullScreenVC + Action.swift"; sourceTree = "<group>"; };
+		1A1451D02C6EB705003D5ECF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		1A1451D22C6EBA7F003D5ECF /* AddTrackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrackViewModel.swift; sourceTree = "<group>"; };
+		1A1451D42C6EBBAF003D5ECF /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 		1A415B4D2C6A6E5300FF3825 /* BistrovPBD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BistrovPBD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A415B502C6A6E5300FF3825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A415B522C6A6E5300FF3825 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +150,6 @@
 		1A415B852C6A83F900FF3825 /* UITextField + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Ext.swift"; sourceTree = "<group>"; };
 		1A415B872C6A841000FF3825 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		1A415B932C6A869900FF3825 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
-		1A415B952C6A86DC00FF3825 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		1A415B992C6A89E400FF3825 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		1A415B9D2C6A8A3200FF3825 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		1A415BA02C6A8A4700FF3825 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +199,8 @@
 			isa = PBXGroup;
 			children = (
 				1A1451932C6D584A003D5ECF /* PlayerViewController.swift */,
+				1A1451C82C6EAF57003D5ECF /* PlayerView.swift */,
+				1A1451CA2C6EB0FF003D5ECF /* PlayerVC + Action.swift */,
 			);
 			path = PlayerView;
 			sourceTree = "<group>";
@@ -175,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				1A1451982C6D6B21003D5ECF /* FullScreenViewController.swift */,
+				1A1451CC2C6EB1E0003D5ECF /* FullScreenView.swift */,
+				1A1451CE2C6EB388003D5ECF /* FullScreenVC + Action.swift */,
 			);
 			path = FullScreenView;
 			sourceTree = "<group>";
@@ -216,8 +252,62 @@
 		1A1451AB2C6E96F4003D5ECF /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				1A1451B42C6EA1DB003D5ECF /* AuthManager.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		1A1451B82C6EAA34003D5ECF /* MainCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A415B702C6A801900FF3825 /* MainTabBarCoordinator.swift */,
+				1A1451BC2C6EAA5D003D5ECF /* PlayerCoordinator */,
+				1A1451BB2C6EAA52003D5ECF /* FavouritesCoordinator */,
+				1A1451BA2C6EAA4A003D5ECF /* FeedCoordinator */,
+				1A1451B92C6EAA41003D5ECF /* ProfileCoordinator */,
+			);
+			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		1A1451B92C6EAA41003D5ECF /* ProfileCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A1451AF2C6E9E43003D5ECF /* ProfileCoordinator.swift */,
+			);
+			path = ProfileCoordinator;
+			sourceTree = "<group>";
+		};
+		1A1451BA2C6EAA4A003D5ECF /* FeedCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A1451AD2C6E9E1E003D5ECF /* FeedCoordinator.swift */,
+			);
+			path = FeedCoordinator;
+			sourceTree = "<group>";
+		};
+		1A1451BB2C6EAA52003D5ECF /* FavouritesCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A1451B22C6E9F85003D5ECF /* FavouritesCoordinator.swift */,
+			);
+			path = FavouritesCoordinator;
+			sourceTree = "<group>";
+		};
+		1A1451BC2C6EAA5D003D5ECF /* PlayerCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A1451B62C6EA748003D5ECF /* PlayerCoordinator.swift */,
+			);
+			path = PlayerCoordinator;
+			sourceTree = "<group>";
+		};
+		1A1451BD2C6EAA7F003D5ECF /* AuthCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1A415B6A2C6A700400FF3825 /* AuthCoordinator.swift */,
+				1A1451B82C6EAA34003D5ECF /* MainCoordinator */,
+			);
+			path = AuthCoordinator;
 			sourceTree = "<group>";
 		};
 		1A415B442C6A6E5300FF3825 = {
@@ -255,8 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				1A415B682C6A6FEB00FF3825 /* Coordinator.swift */,
-				1A415B6A2C6A700400FF3825 /* AuthCoordinator.swift */,
-				1A415B702C6A801900FF3825 /* MainTabBarCoordinator.swift */,
+				1A1451BD2C6EAA7F003D5ECF /* AuthCoordinator */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -298,6 +387,9 @@
 				1A415B932C6A869900FF3825 /* AuthViewModel.swift */,
 				1A9BF2982C6AA3D9000661EC /* TracksViewModel.swift */,
 				1A1451A72C6E7514003D5ECF /* FavouritesViewModel.swift */,
+				1A1451D02C6EB705003D5ECF /* ProfileViewModel.swift */,
+				1A1451D22C6EBA7F003D5ECF /* AddTrackViewModel.swift */,
+				1A1451D42C6EBBAF003D5ECF /* PlayerViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -345,7 +437,6 @@
 		1A415B972C6A89BD00FF3825 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				1A415B952C6A86DC00FF3825 /* AuthManager.swift */,
 				1A9BF2A62C6ADDE5000661EC /* TrackModel.xcdatamodeld */,
 			);
 			path = Data;
@@ -364,6 +455,7 @@
 			children = (
 				1A415BA02C6A8A4700FF3825 /* ProfileViewController.swift */,
 				1A415BA22C6A8BDE00FF3825 /* ProfileView.swift */,
+				1A1451BE2C6EAB87003D5ECF /* ProfileVC + Action.swift */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -375,6 +467,7 @@
 				1A415BA42C6A959200FF3825 /* FeedView.swift */,
 				1A415BA62C6A97E100FF3825 /* FeedVC + TableView.swift */,
 				1A415BA82C6A984400FF3825 /* TrackTableViewCell.swift */,
+				1A1451C02C6EAD2D003D5ECF /* FeedVC + Action.swift */,
 			);
 			path = FeedView;
 			sourceTree = "<group>";
@@ -384,6 +477,9 @@
 			children = (
 				1A9BF29B2C6AA47F000661EC /* AddTrackViewController.swift */,
 				1A9BF2A02C6AC957000661EC /* AddTrackView.swift */,
+				1A1451C22C6EADE5003D5ECF /* AddTrackVC + Action.swift */,
+				1A1451C42C6EAE75003D5ECF /* AddTrackVC + UIDocumentPickerDelegate.swift */,
+				1A1451C62C6EAEC5003D5ECF /* AddTrackVC + UIImagePickerDelegate.swift */,
 			);
 			path = AddTrackView;
 			sourceTree = "<group>";
@@ -478,13 +574,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A1451A12C6E3FA8003D5ECF /* FavouritesViewController.swift in Sources */,
+				1A1451CF2C6EB388003D5ECF /* FullScreenVC + Action.swift in Sources */,
+				1A1451BF2C6EAB87003D5ECF /* ProfileVC + Action.swift in Sources */,
+				1A1451B52C6EA1DB003D5ECF /* AuthManager.swift in Sources */,
+				1A1451C92C6EAF57003D5ECF /* PlayerView.swift in Sources */,
 				1A415B552C6A6E5300FF3825 /* ViewController.swift in Sources */,
 				1A415B6B2C6A700400FF3825 /* AuthCoordinator.swift in Sources */,
 				1A415B512C6A6E5300FF3825 /* AppDelegate.swift in Sources */,
 				1A415B822C6A838D00FF3825 /* UIView + Ext.swift in Sources */,
+				1A1451D52C6EBBAF003D5ECF /* PlayerViewModel.swift in Sources */,
+				1A1451D32C6EBA7F003D5ECF /* AddTrackViewModel.swift in Sources */,
 				1A9BF29C2C6AA47F000661EC /* AddTrackViewController.swift in Sources */,
+				1A1451D12C6EB705003D5ECF /* ProfileViewModel.swift in Sources */,
 				1A1451942C6D584A003D5ECF /* PlayerViewController.swift in Sources */,
 				1A415B712C6A801900FF3825 /* MainTabBarCoordinator.swift in Sources */,
+				1A1451C12C6EAD2D003D5ECF /* FeedVC + Action.swift in Sources */,
+				1A1451B02C6E9E43003D5ECF /* ProfileCoordinator.swift in Sources */,
 				1A1451A82C6E7514003D5ECF /* FavouritesViewModel.swift in Sources */,
 				1A415BA72C6A97E100FF3825 /* FeedVC + TableView.swift in Sources */,
 				1A415B942C6A869900FF3825 /* AuthViewModel.swift in Sources */,
@@ -496,24 +601,31 @@
 				1A415B7A2C6A835500FF3825 /* AuthView.swift in Sources */,
 				1A1451A62C6E744B003D5ECF /* FavouritesVC + TableView.swift in Sources */,
 				1A415BA12C6A8A4700FF3825 /* ProfileViewController.swift in Sources */,
-				1A415B962C6A86DC00FF3825 /* AuthManager.swift in Sources */,
 				1A9BF2A12C6AC957000661EC /* AddTrackView.swift in Sources */,
 				1A415B9E2C6A8A3200FF3825 /* FeedViewController.swift in Sources */,
+				1A1451AE2C6E9E1E003D5ECF /* FeedCoordinator.swift in Sources */,
 				1A415BA32C6A8BDE00FF3825 /* ProfileView.swift in Sources */,
 				1A415B882C6A841000FF3825 /* Resources.swift in Sources */,
 				1A1451992C6D6B21003D5ECF /* FullScreenViewController.swift in Sources */,
+				1A1451B72C6EA749003D5ECF /* PlayerCoordinator.swift in Sources */,
 				1A9BF2992C6AA3D9000661EC /* TracksViewModel.swift in Sources */,
 				1A9BF2962C6AA341000661EC /* TrackManager.swift in Sources */,
+				1A1451CD2C6EB1E0003D5ECF /* FullScreenView.swift in Sources */,
+				1A1451C52C6EAE75003D5ECF /* AddTrackVC + UIDocumentPickerDelegate.swift in Sources */,
 				1A415B842C6A83D800FF3825 /* UIButton + Ext.swift in Sources */,
 				1A415B532C6A6E5300FF3825 /* SceneDelegate.swift in Sources */,
+				1A1451C32C6EADE5003D5ECF /* AddTrackVC + Action.swift in Sources */,
 				1A415B862C6A83F900FF3825 /* UITextField + Ext.swift in Sources */,
 				1A415B6F2C6A708600FF3825 /* MainViewController.swift in Sources */,
 				1A14519C2C6D747D003D5ECF /* AudioPlayer.swift in Sources */,
+				1A1451C72C6EAEC5003D5ECF /* AddTrackVC + UIImagePickerDelegate.swift in Sources */,
 				1A415BA92C6A984400FF3825 /* TrackTableViewCell.swift in Sources */,
 				1A415B9A2C6A89E400FF3825 /* MainTabBarController.swift in Sources */,
 				1A1451902C6D5517003D5ECF /* TrackEntities+CoreDataClass.swift in Sources */,
 				1A1451912C6D5517003D5ECF /* TrackEntities+CoreDataProperties.swift in Sources */,
+				1A1451B32C6E9F85003D5ECF /* FavouritesCoordinator.swift in Sources */,
 				1A14519E2C6E3F8A003D5ECF /* FavouritesView.swift in Sources */,
+				1A1451CB2C6EB0FF003D5ECF /* PlayerVC + Action.swift in Sources */,
 				1A9BF2A82C6ADDE5000661EC /* TrackModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,16 +10,19 @@ import UIKit
 
 class FavouritesViewController: UIViewController {
     
-    public var coordinator: MainTabBarCoordinator?
+    //MARK: Properties
+    public var coordinator: FavouritesCoordinator?
     public let favouritesView = FavouritesView()
     public var tableView: UITableView!
     public var viewModel = FavouritesViewModel()
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
     }
     
+    //MARK: Methods
     private func configure() {
         setupUI()
         setupTableView()

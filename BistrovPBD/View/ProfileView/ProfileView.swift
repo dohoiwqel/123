@@ -10,12 +10,10 @@ import SnapKit
 
 class ProfileView: UIView {
     
-    
-    
+    //MARK: Properties
     public let profileLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22, weight: .medium)
-        label.text = AuthManager.shared.getCurrentUserName()!
         label.textColor = Resources.Colors.basicColor
         return label
     }()
@@ -48,11 +46,6 @@ class ProfileView: UIView {
         label.numberOfLines = 0
         label.textAlignment = .natural
         label.textColor = Resources.Colors.basicColorAlpha70
-        if AuthManager.shared.getCurrentUserName() != "admin" {
-            label.text = " 1. Возможность просмотра ленты с треками. \n 2. Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного.\n 4. Возможность использовать плеер."
-        } else {
-            label.text = " 1. Возможность просмотра ленты с треками. \n 2. Возможность добавлять треки в избранное.\n 3. Возможность удалять треки из избранного.\n 4. Возможность использовать плеер \n 5. Возможность добавлять треки.\n 6. Возможность удалять треки."
-        }
         label.font = UIFont.systemFont(ofSize: 17)
         label.backgroundColor = .black
         return label
@@ -61,25 +54,16 @@ class ProfileView: UIView {
     
     public let avatarButton: UIButton = {
         let im = UIButton()
-        
-        if AuthManager.shared.getCurrentUserName() == "admin" {
-            im.setImage(UIImage(named: "adminAvatar"), for: .normal)
-        } else {
-            im.setImage(UIImage(named: "userAvatar"), for: .normal)
-        }
         im.tintColor = Resources.Colors.basicColorAlpha70
         im.imageView?.contentMode = .scaleAspectFit
-        
         im.makeBorders(width: 2)
         im.makeRadius(radius: 15)
         im.clipsToBounds = true
-//        im.backgroundColor = .blue
         im.makeBordersColor(color: Resources.Colors.basicCGColor)
         return im
     }()
     
-    
-
+    //MARK: Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -90,10 +74,12 @@ class ProfileView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Methods
     private func configure() {
         setupSubviews()
         setupConstraints()
     }
+    
     
     private func setupSubviews() {
         addSubview(profileLabel)

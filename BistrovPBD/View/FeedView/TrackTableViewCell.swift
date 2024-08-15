@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class TrackTableViewCell: UITableViewCell {
-    
+    //MARK: Properties
     static let reuseId = "TrackTableViewCell"
     
     private let trackName: UILabel = {
@@ -42,6 +42,7 @@ class TrackTableViewCell: UITableViewCell {
         return label
     }()
     
+    //MARK: - Initialize
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.selectionStyle = .none
@@ -53,6 +54,7 @@ class TrackTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     override func prepareForReuse() {
         super.prepareForReuse()
         self.trackTimeLimit.text = ""
@@ -98,6 +100,7 @@ class TrackTableViewCell: UITableViewCell {
     }
 }
 
+//MARK: - Setup cell
 extension TrackTableViewCell {
     public func setupCell(trackName: String, authorName: String, timeLimit: String, image: UIImage) {
         self.trackName.text = trackName

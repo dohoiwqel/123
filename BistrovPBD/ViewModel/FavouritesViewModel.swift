@@ -16,7 +16,6 @@ class FavouritesViewModel {
         let favouritesIds = favouritesManager.getAllFavoriteTrackIDs()
         let allTracks = trackManager.fetchTracks()
         self.favouritesTracks = allTracks.filter{ favouritesIds.contains($0.id!) }
-        print(favouritesTracks)
         return favouritesTracks.count
     }
     

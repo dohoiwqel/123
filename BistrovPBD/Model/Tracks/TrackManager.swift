@@ -8,9 +8,10 @@ import Foundation
 import CoreData
 import UIKit
 import AVFoundation
-
+//MARK: - TrackManager
 class TrackManager {
     
+    //MARK: Properties
     static let shared = TrackManager()
     
     private init() {}

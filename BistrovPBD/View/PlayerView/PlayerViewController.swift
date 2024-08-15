@@ -11,110 +11,53 @@ import AVFoundation
 
 class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
     
-
-    private var track: TrackEntities?
-    private var player: AVAudioPlayer?
-    public weak var coodinator: MainTabBarCoordinator?
-    
-    private let trackNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let authorNameLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .black
-        return label
-    }()
-    
-    private let avatarImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 5
-        return imageView
-    }()
-    
-    private let playPauseButton: UIButton = {
-        let button = UIButton(type: .system)
-        let playImage = UIImage(systemName: "play.fill")
-        button.setImage(playImage, for: .normal)
-        button.tintColor = .black
-        return button
-    }()
-    
-    private let playerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = Resources.Colors.basicColorAlpha70
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
-    public let fullScreenButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .clear
-        return button
-    }()
-    
+    //MARK: Properties
+    public var track: TrackEntities?
+    public var player: AVAudioPlayer?
+    public weak var coodinator: PlayerCoordinator?
     public var currentCountFavourites = FavoritesManager.shared.getAllFavoriteTrackIDs().count
+    public let playerV = PlayerView()
     
+    public var trackNameLabel: UILabel!
+    public var authorNameLabel: UILabel!
+    public var avatarImageView: UIImageView!
+    public var playPauseButton: UIButton!
+    public var playerView: UIView!
+    public var fullScreenButton: UIButton!
+    
+    //MARK: - Initialize
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .clear
         configure()
     }
     
+    //MARK: - Methods
     private func configure() {
-        setupSubviews()
-        setupConstraints()
+        setupUI()
+        setupProperties()
         setupButtons()
         setupSwipeGesture()
     }
     
-    private func setupSubviews() {
-        view.addSubview(playerView)
-        playerView.addSubview(trackNameLabel)
-        playerView.addSubview(authorNameLabel)
-        playerView.addSubview(avatarImageView)
-        playerView.addSubview(fullScreenButton)
-        playerView.addSubview(playPauseButton)
+    private func setupProperties() {
+        trackNameLabel = playerV.trackNameLabel
+        authorNameLabel = playerV.authorNameLabel
+        avatarImageView = playerV.avatarImageView
+        playPauseButton = playerV.playPauseButton
+        playerView = playerV.playerView
+        fullScreenButton = playerV.fullScreenButton
     }
     
-    private func setupConstraints() {
-        playerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        avatarImageView.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(16)
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(50)
-        }
-        
-        trackNameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(avatarImageView.snp.trailing).offset(16)
-            make.top.equalToSuperview().offset(10)
-        }
-        
-        authorNameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(avatarImageView.snp.trailing).offset(16)
-            make.top.equalTo(trackNameLabel.snp.bottom).offset(5)
-        }
-        
-        playPauseButton.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(41.5)
-            make.centerY.equalToSuperview()
-        }
-        
-        fullScreenButton.snp.makeConstraints { make in
+    private func setupUI() {
+        view.addSubview(playerV)
+        playerV.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
+    //MARK: - Configure
     public func configure(with track: TrackEntities) {
+        setupProperties()
         self.track = track
         self.trackNameLabel.text = track.trackName
         self.authorNameLabel.text = track.authorName
@@ -124,6 +67,7 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
         setupPlayer(with: track.trackData)
     }
     
+    //MARK: - Setup player
     private func setupPlayer(with trackData: Data?) {
         guard let trackData = trackData else { return }
         
@@ -135,55 +79,16 @@ class PlayerViewController: UIViewController, FullScreenPlayerDelegate {
         }
     }
     
-    func didDismissFullScreenPlayer() {
+    //from coordinator
+    public func didDismissFullScreenPlayer() {
         if AudioPlayerManager.shared.isPlayingTrack() {
             playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
         } else {
             playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
         }
-        coodinator?.reloadFavourites()
+        coodinator?.reloadData()
+        coodinator?.reloadConstraints()
     }
     
 }
 
-extension PlayerViewController {
-    
-    public func setupButtons() {
-        playPauseButton.addTarget(self, action: #selector(didTapPlayPause), for: .touchUpInside)
-        fullScreenButton.addTarget(self, action: #selector(fullScreenTapped), for: .touchUpInside)
-    }
-    
-    public func setupSwipeGesture() {
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown(_:)))
-        swipeDown.direction = .down
-        view.addGestureRecognizer(swipeDown)
-    }
-
-    @objc private func handleSwipeDown(_ gesture: UISwipeGestureRecognizer) {
-        coodinator?.dismissPlayerViewController()
-    }
-    
-    @objc 
-    public func didTapPlayPause() {
-        
-        if AudioPlayerManager.shared.isPlayingTrack() {
-            AudioPlayerManager.shared.pause()
-            playPauseButton.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        } else {
-            guard let track = track else { return }
-            AudioPlayerManager.shared.play(track: track)
-            playPauseButton.setImage(UIImage(systemName: "pause.fill"), for: .normal)
-        }
-        if currentCountFavourites != FavoritesManager.shared.getAllFavoriteTrackIDs().count {
-            coodinator?.reloadFavourites()
-        }
-    }
-    
-    @objc func fullScreenTapped() {
-        guard let track = track else { return }
-        let fullScreenVC = FullScreenPlayerViewController()
-        fullScreenVC.fullScreendelegate = self
-        fullScreenVC.configure(with: track)
-        present(fullScreenVC, animated: true, completion: nil)
-    }
-}

@@ -10,6 +10,7 @@ import UIKit
 
 class FavouritesView: UIView {
     
+    //MARK: Properties
     private let favouritesHeaderLabel: UILabel = {
        let label = UILabel()
         label.text = "Избранные"
@@ -20,6 +21,7 @@ class FavouritesView: UIView {
     
     public  let favouritesTableView = UITableView()
     
+    //MARK: Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -30,6 +32,7 @@ class FavouritesView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Methods
     private func configure() {
         setupSubviews()
         setupConstraits()

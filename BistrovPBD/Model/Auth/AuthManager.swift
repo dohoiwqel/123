@@ -2,8 +2,9 @@
 //  AuthManager.swift
 //  BistrovPBD
 //
-//  Created by Александр Андреев on 12.08.2024.
+//  Created by Александр Андреев on 15.08.2024.
 //
+
 
 import Foundation
 // Класс для работы с авторизацией
@@ -40,4 +41,3 @@ class AuthManager {
     
     
 }
-

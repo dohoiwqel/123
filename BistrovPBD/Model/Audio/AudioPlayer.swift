@@ -9,6 +9,8 @@ import Foundation
 import AVFoundation
 
 class AudioPlayerManager {
+    
+    //MARK: Properties
     static let shared = AudioPlayerManager()
 
     private var player: AVAudioPlayer?

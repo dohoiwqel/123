@@ -9,22 +9,32 @@ import UIKit
 
 class FeedViewController: UIViewController {
     
+    //MARK: Properties
     public let feedView = FeedView()
     public let viewModel = TracksViewModel()
     public var tableView: UITableView!
     public var playerViewController: PlayerViewController?
-    public var coordinator: MainTabBarCoordinator?  // Ссылка на координатор
+    public var coordinator: FeedCoordinator?
 
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         configure()
     }
     
+    //MARK: - Methods
     private func configure() {
+        setupViewModel()
         setupUI()
         setupTableView()
         setupButtons()
+    }
+    
+    private func setupViewModel() {
+        if viewModel.getUsername() != "admin" {
+            feedView.addTrackButton.isHidden = true
+        }
+        
     }
     
     private func setupUI() {
@@ -33,22 +43,6 @@ class FeedViewController: UIViewController {
         feedView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-    
-    private func setupButtons() {
-        feedView.addTrackButton.addTarget(self, action: #selector(addTrackPressed), for: .touchUpInside)
-    }
-    
-    @objc
-    func addTrackPressed() {
-        coordinator?.showAddTrackViewController()
-    }
-    
-    public func showPlayerViewController(with track: TrackEntities) {
-        AudioPlayerManager.shared.play(track: track)
-        AudioPlayerManager.shared.pause()
-        reloadTableViewConstraints()
-        coordinator?.showPlayerViewController(with: track)
     }
     
 }

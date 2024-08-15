@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 class AddTrackView: UIView {
     
+    //MARK: Properties
     private let addingTrack: UILabel = {
        let label = UILabel()
         label.text = "  Добавление трека"
@@ -78,18 +79,14 @@ class AddTrackView: UIView {
     
     public let isImageLoaded: UIImageView = {
         let view = UIImageView()
-//        view.image = UIImage(systemName: "checkmark.square")
         view.image = UIImage(systemName: "xmark.square")
-//        view.tintColor = Resources.Colors.basicColor
         view.tintColor = Resources.Colors.redColor
         return view
     }()
     
     public let isTrackLoaded: UIImageView = {
         let view = UIImageView()
-//        view.image = UIImage(systemName: "checkmark.square")
         view.image = UIImage(systemName: "xmark.square")
-//        view.tintColor = Resources.Colors.basicColor
         view.tintColor = Resources.Colors.redColor
         return view
     }()
@@ -112,6 +109,7 @@ class AddTrackView: UIView {
         return button
     }()
     
+    //MARK: Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -121,6 +119,7 @@ class AddTrackView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: Methods
     private func configure() {
         setupSubviews()
         setupConstraints()

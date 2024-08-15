@@ -9,6 +9,7 @@ import Foundation
 
 class FavoritesManager {
     
+    //MARK: Properties
     static let shared = FavoritesManager()
     
     private init() {}

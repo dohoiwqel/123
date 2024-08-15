@@ -9,6 +9,7 @@ import UIKit
 
 class FeedView: UIView {
     
+    //MARK: Properties
     private let tracksHeaderLabel: UILabel = {
        let label = UILabel()
         label.text = "Треки"
@@ -17,25 +18,17 @@ class FeedView: UIView {
         return label
     }()
     
-    public let tracksTableView: UITableView = {
-        let tv = UITableView()
-        
-        return tv
-    }()
-    
     public let addTrackButton: UIButton = {
         let button = UIButton()
         let image = UIImage(systemName: "plus")
-//        = CGSize(width: 40, height: 40)
-        if AuthManager.shared.getCurrentUserName() != "admin" {
-            button.isHidden = true
-        }
         button.setBackgroundImage(image, for: .normal)
         button.tintColor = Resources.Colors.basicColor
         return button
     }()
     
-
+    public let tracksTableView = UITableView()
+    
+    //MARK: - Initialize
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -45,6 +38,7 @@ class FeedView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Methods
     private func configure() {
         setupSubviews()
         setupConstraints()
@@ -69,7 +63,6 @@ class FeedView: UIView {
             make.bottom.equalToSuperview().inset(100)
             make.top.equalTo(tracksHeaderLabel.snp.bottom).offset(30)
         }
-        tracksTableView.backgroundColor = .white
         
         addTrackButton.snp.makeConstraints { make in
             make.size.equalTo(40)
@@ -77,7 +70,6 @@ class FeedView: UIView {
             make.centerY.equalTo(tracksHeaderLabel.snp.centerY)
         }
         
-//        addTrackButton.backgroundColor = Resources.Colors.basicColor
     }
     
 }

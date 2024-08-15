@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 
+//MARK: TableView
 extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func setupTableView() {
@@ -20,7 +21,7 @@ extension FavouritesViewController: UITableViewDelegate, UITableViewDataSource {
     func reloadTableViewConstraints() {
         guard let coordinator = coordinator else { return }
         tableView = favouritesView.favouritesTableView
-        if coordinator.playVCIsShowing  {
+        if coordinator.isPlayerShowing()  {
             tableView.snp.updateConstraints { make in
                 make.bottom.equalToSuperview().inset(170)
             }
